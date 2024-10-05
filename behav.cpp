@@ -174,7 +174,9 @@ void runMachineCode(ofstream &outFile, vector<int> machineCode)
             int addrRt = BinarytoDecimal(rt, rt.length());
             if (resultaddr >= address.size())
             {
-                throw invalid_argument("received out of address");
+                address.push_back(reg[addrRt]);
+                printform(outFile, i, address, reg, address.size());
+                inscount++;
             }
             else
             {
